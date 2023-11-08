@@ -11,6 +11,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showPopover: Bool = false
+    @State private var feedBack: [String] = [
+    "Agerage!",
+    "Happy :)",
+    "Excited :)",
+    
+    ]
     
     var body: some View {
         
@@ -21,21 +27,35 @@ struct ContentView: View {
             Button(action: {
                 showPopover.toggle()
             }, label: {
-                Text("Knopka")
-            })
-            .popover(isPresented: $showPopover, attachmentAnchor: .point(.topTrailing), content: {
-                Text("Kak dela ?")
-                    .presentationCompactAdaptation(.popover)
-                    .foregroundColor(.black)
-                    .padding(5)
+                Text("Describe your mood!")
             })
             .font(.system(size: 30, weight: .black, design: .rounded))
-//            .foregroundColor(.white)
-//            .frame(maxWidth: .infinity)
-//            .frame(height: 55)
-//            .background(Color.black)
-//            .cornerRadius(15)
-//            .padding()
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .frame(height: 55)
+            .background(Color.mint)
+            .cornerRadius(15)
+            .padding()
+            .popover(isPresented: $showPopover, attachmentAnchor: .point(.top), content: {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 10, content: {
+                        ForEach(feedBack, id: \.self) { option in
+                            Button(option) {
+                                
+                            }
+                            if option != feedBack.last {
+                                Divider()
+                            }
+                        }
+                    })
+                    .padding()
+                    .presentationCompactAdaptation(.popover)
+                    .font(.system(size: 18, weight: .black, design: .rounded))
+                    .foregroundColor(.mint)
+                    //.background(Color.mint)
+                }
+            })
+
         }
     }
 }
