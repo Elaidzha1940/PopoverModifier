@@ -1,9 +1,11 @@
+//  /*
 //
-//  PopoverModifierApp.swift
-//  PopoverModifier
+//  Project: PopoverModifier
+//  File: PopoverModifierApp.swift
+//  Created by: Elaidzha Shchukin
+//  Date: 07.11.2023
 //
-//  Created by Elaidzha Shchukin on 07.11.2023.
-//
+//  */
 
 import SwiftUI
 
