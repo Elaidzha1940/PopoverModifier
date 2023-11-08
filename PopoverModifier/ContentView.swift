@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            Color.mint
+            Color.gray
                 .edgesIgnoringSafeArea(.all)
             
             Button(action: {
@@ -23,18 +23,19 @@ struct ContentView: View {
             }, label: {
                 Text("Knopka")
             })
-            .popover(isPresented: $showPopover, content: {
+            .popover(isPresented: $showPopover, attachmentAnchor: .point(.topTrailing), content: {
                 Text("Kak dela ?")
                     .presentationCompactAdaptation(.popover)
                     .foregroundColor(.black)
+                    .padding(5)
             })
             .font(.system(size: 30, weight: .black, design: .rounded))
-            .foregroundColor(.white)
-            .frame(maxWidth: .infinity)
-            .frame(height: 55)
-            .background(Color.black)
-            .cornerRadius(15)
-            .padding()
+//            .foregroundColor(.white)
+//            .frame(maxWidth: .infinity)
+//            .frame(height: 55)
+//            .background(Color.black)
+//            .cornerRadius(15)
+//            .padding()
         }
     }
 }
