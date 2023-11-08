@@ -12,16 +12,15 @@ import SwiftUI
 struct ContentView: View {
     @State private var showPopover: Bool = false
     @State private var feedBack: [String] = [
-    "Agerage!",
-    "Happy :)",
-    "Excited :)",
-    
+        "Agerage!",
+        "Happy :)",
+        "Excited :)",
     ]
-    
+
     var body: some View {
         
         ZStack {
-            Color.gray
+            Color.black.opacity(0.8)
                 .edgesIgnoringSafeArea(.all)
             
             Button(action: {
@@ -29,11 +28,11 @@ struct ContentView: View {
             }, label: {
                 Text("Describe your mood!")
             })
-            .font(.system(size: 30, weight: .black, design: .rounded))
+            .font(.system(size: 25, weight: .black, design: .monospaced))
             .foregroundColor(.white)
             .frame(maxWidth: .infinity)
             .frame(height: 55)
-            .background(Color.mint)
+            .background(Color.mint.opacity(0.2))
             .cornerRadius(15)
             .padding()
             .popover(isPresented: $showPopover, attachmentAnchor: .point(.top), content: {
@@ -48,14 +47,12 @@ struct ContentView: View {
                             }
                         }
                     })
-                    .padding()
                     .presentationCompactAdaptation(.popover)
-                    .font(.system(size: 18, weight: .black, design: .rounded))
+                    .padding()
+                    .font(.system(size: 18, weight: .black, design: .monospaced))
                     .foregroundColor(.mint)
-                    //.background(Color.mint)
                 }
             })
-
         }
     }
 }
